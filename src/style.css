@@ -1,0 +1,9 @@
+body {
+  margin: 0 auto;
+  width: 235px;
+  height: 320px;
+}
+
+div {
+  background-color: aqua;
+}
