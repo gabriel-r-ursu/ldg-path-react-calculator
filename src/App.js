@@ -1,14 +1,14 @@
 import { render } from "react-dom";
 import TitleBar from "./TitleBar";
 import Screen from "./Screen";
-import Input from "./Input";
+import Buttons from "./Buttons";
 
 const App = () => {
   return (
     <div className="calculator">
-      <TitleBar className="calculator__titlebar" />
-      <Screen className="calculator__screen" />
-      <Input className="calculator__input" />
+      <TitleBar />
+      <Screen />
+      <Buttons />
     </div>
   );
 };

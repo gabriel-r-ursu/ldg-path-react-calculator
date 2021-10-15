@@ -1,5 +1,5 @@
 const Screen = () => {
-  return null;
+  return <div className="calculator__screen"></div>;
 };
 
 export default Screen;

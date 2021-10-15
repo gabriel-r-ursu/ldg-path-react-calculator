@@ -2,9 +2,7 @@ import TitleButton from "./TitleButton";
 
 const TitleBar = () => {
   return (
-    <div>
-      <TitleButton />
-      <TitleButton />
+    <div className="calculator__titlebar">
       <TitleButton />
     </div>
   );

@@ -1,29 +1,7 @@
-import Button from "./Button";
+import Buttons from "./Buttons";
 
 const Input = () => {
-  return (
-    <div>
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-    </div>
-  );
+  return <Buttons />;
 };
 
 export default Input;
