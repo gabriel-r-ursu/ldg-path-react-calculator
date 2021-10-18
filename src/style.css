@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  background-color: rgb(96, 128, 128);
 }
 
 #root {
@@ -63,7 +64,7 @@ body {
   align-items: baseline;
   justify-content: flex-end;
 
-  padding-right: 0.2em;
+  padding: 0 0.3em;
   color: white;
   font-size: 45px;
 }
@@ -121,6 +122,9 @@ body {
 
 .input__btn--orange:active {
   background-color: rgb(211, 127, 0);
+  border-top: 1px solid rgb(91, 82, 83);
+  border-bottom: 1px solid rgb(91, 82, 83);
+  border-left: 1px solid rgb(91, 82, 83);
 }
 
 .input__btn--numbers {

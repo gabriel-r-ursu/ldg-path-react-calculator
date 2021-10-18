@@ -1,7 +1,7 @@
 import * as math from "mathjs";
 
 const Buttons = (props) => {
-  let addInput = (e) => {
+  const addInput = (e) => {
     props.setInput(
       props.input === "0"
         ? (input = e.target.name)
@@ -9,9 +9,14 @@ const Buttons = (props) => {
     );
   };
 
-  const handleClear = (e) => props.setInput("0");
+  // const handleOperation = () => {
+  //   hasOperationQueued ?
+  // };
 
-  const toNegative = (e) => {
+  const handleClear = () => props.setInput("0");
+  const handleClearText = props.input !== "0" ? "C" : "AC";
+
+  const toNegative = () => {
     props.setInput(
       Math.sign(props.input) === 1
         ? -Math.abs(props.input)
@@ -19,7 +24,10 @@ const Buttons = (props) => {
     );
   };
 
-  const handleEquals = (e) => props.setInput(math.evaluate(props.input));
+  const moveTwoDecimalPlaces = () =>
+    props.setInput(props.input / Math.pow(10, 2));
+
+  const handleEquals = () => props.setInput(math.evaluate(props.input));
 
   return (
     <div className="calculator__input">
@@ -28,12 +36,16 @@ const Buttons = (props) => {
         onClick={handleClear}
         className="input__btn input__btn--top"
       >
-        AC
+        {handleClearText}
       </button>
       <button onClick={toNegative} className="input__btn input__btn--top">
         +/-
       </button>
-      <button name="%" className="input__btn input__btn--top">
+      <button
+        name="%"
+        onClick={moveTwoDecimalPlaces}
+        className="input__btn input__btn--top"
+      >
         %
       </button>
       <button
@@ -139,7 +151,7 @@ const Buttons = (props) => {
         0
       </button>
       <button
-        name=","
+        name="."
         onClick={addInput}
         className="input__btn input__btn--numbers"
       >

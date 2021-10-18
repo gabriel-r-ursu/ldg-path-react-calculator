@@ -1,7 +1,11 @@
+import { Textfit } from "react-textfit";
+
 const Screen = (props) => {
   return (
     <div className="calculator__screen">
-      <span className="screen__numbers">{props.result}</span>
+      <Textfit mode="single" max={45} className="screen__numbers">
+        {props.result}
+      </Textfit>
     </div>
   );
 };
