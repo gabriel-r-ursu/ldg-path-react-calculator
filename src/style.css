@@ -1,10 +1,10 @@
 * {
   box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
 }
 
 #root {
@@ -70,8 +70,8 @@ body {
 
 .titlebar__btn {
   display: flex;
-  /* align-items: center;
-    justify-content: center; */
+  align-items: center;
+  justify-content: center;
 
   height: 12px;
   width: 12px;
@@ -117,10 +117,22 @@ body {
   background-color: rgb(255, 159, 10);
 }
 
+.input__btn--orange:active {
+  background-color: rgb(211, 127, 0);
+}
+
 .input__btn--numbers {
   background-color: rgb(133, 131, 130);
 }
 
-.input__color--top {
+.input__btn--numbers:active {
+  background-color: rgb(182, 179, 178);
+}
+
+.input__btn--top {
   background-color: rgb(111, 106, 105);
+}
+
+.input__btn--top:active {
+  background-color: rgb(133, 131, 130);
 }

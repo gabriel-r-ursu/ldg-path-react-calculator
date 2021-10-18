@@ -1,7 +1,7 @@
-const Screen = () => {
+const Screen = (props) => {
   return (
     <div className="calculator__screen">
-      <p className="screen__numbers">0</p>
+      <span className="screen__numbers">{props.result}</span>
     </div>
   );
 };
