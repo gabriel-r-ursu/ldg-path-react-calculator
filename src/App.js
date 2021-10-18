@@ -12,7 +12,7 @@ const App = () => {
     <div className="calculator">
       <TitleBar />
       <Screen result={input} />
-      <Buttons input={input} setInput={setInput} hasOperationQueued={false} />
+      <Buttons input={input} setInput={setInput} />
     </div>
   );
 };

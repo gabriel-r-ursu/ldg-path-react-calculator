@@ -1,17 +1,22 @@
 import * as math from "mathjs";
 
 const Buttons = (props) => {
+  const availableOperations = ["+", "-", "*", "/", "."];
+
   const addInput = (e) => {
+    if (
+      (availableOperations.includes(e.target.name) && props.input === "") ||
+      (availableOperations.includes(e.target.name) &&
+        availableOperations.includes(props.input.toString().slice(-1)))
+    )
+      return;
+
     props.setInput(
       props.input === "0"
-        ? (input = e.target.name)
-        : (input = props.input + e.target.name)
+        ? (props.input = e.target.name)
+        : (props.input = props.input + e.target.name)
     );
   };
-
-  // const handleOperation = () => {
-  //   hasOperationQueued ?
-  // };
 
   const handleClear = () => props.setInput("0");
   const handleClearText = props.input !== "0" ? "C" : "AC";

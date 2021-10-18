@@ -5,7 +5,6 @@
 
 body {
   margin: 0;
-  background-color: rgb(96, 128, 128);
 }
 
 #root {
@@ -122,9 +121,16 @@ body {
 
 .input__btn--orange:active {
   background-color: rgb(211, 127, 0);
+}
+
+.input__btn--orange:focus {
   border-top: 1px solid rgb(91, 82, 83);
   border-bottom: 1px solid rgb(91, 82, 83);
   border-left: 1px solid rgb(91, 82, 83);
+}
+
+.input__btn--equals:focus {
+  border: none;
 }
 
 .input__btn--numbers {
