@@ -7,11 +7,12 @@ import Buttons from "./Buttons";
 
 const App = () => {
   const [input, setInput] = useState("0");
+
   return (
     <div className="calculator">
       <TitleBar />
       <Screen result={input} />
-      <Buttons setInput={setInput} />
+      <Buttons input={input} setInput={setInput} />
     </div>
   );
 };

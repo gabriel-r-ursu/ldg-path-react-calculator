@@ -1,29 +1,44 @@
+import * as math from "mathjs";
+
 const Buttons = (props) => {
+  let addInput = (e) => {
+    props.setInput(
+      props.input === "0"
+        ? (input = e.target.name)
+        : (input = props.input + e.target.name)
+    );
+  };
+
+  const handleClear = (e) => props.setInput("0");
+
+  const toNegative = (e) => {
+    props.setInput(
+      Math.sign(props.input) === 1
+        ? -Math.abs(props.input)
+        : Math.abs(props.input)
+    );
+  };
+
+  const handleEquals = (e) => props.setInput(math.evaluate(props.input));
+
   return (
     <div className="calculator__input">
       <button
         name="AC"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={handleClear}
         className="input__btn input__btn--top"
       >
         AC
       </button>
-      <button
-        // onClick={(addInput = (e) => props.setInput(e.target.name))}
-        className="input__btn input__btn--top"
-      >
+      <button onClick={toNegative} className="input__btn input__btn--top">
         +/-
       </button>
-      <button
-        name="%"
-        // onClick={(addInput = (e) => props.setInput(e.target.name))}
-        className="input__btn input__btn--top"
-      >
+      <button name="%" className="input__btn input__btn--top">
         %
       </button>
       <button
         name="/"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--orange"
       >
         ÷
@@ -31,28 +46,28 @@ const Buttons = (props) => {
 
       <button
         name="7"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         7
       </button>
       <button
         name="8"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         8
       </button>
       <button
         name="9"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         9
       </button>
       <button
         name="*"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--orange"
       >
         ×
@@ -60,28 +75,28 @@ const Buttons = (props) => {
 
       <button
         name="4"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         4
       </button>
       <button
         name="5"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         5
       </button>
       <button
         name="6"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         6
       </button>
       <button
         name="-"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--orange"
       >
         –
@@ -89,28 +104,28 @@ const Buttons = (props) => {
 
       <button
         name="1"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         1
       </button>
       <button
         name="2"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         2
       </button>
       <button
         name="3"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         3
       </button>
       <button
         name="+"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--orange"
       >
         +
@@ -118,20 +133,20 @@ const Buttons = (props) => {
 
       <button
         name="0"
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--0 input__btn--numbers"
       >
         0
       </button>
       <button
         name=","
-        onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={addInput}
         className="input__btn input__btn--numbers"
       >
         ,
       </button>
       <button
-        // onClick={(addInput = (e) => props.setInput(e.target.name))}
+        onClick={handleEquals}
         className="input__btn input__btn--equals input__btn--orange"
       >
         =
