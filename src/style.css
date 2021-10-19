@@ -1,14 +1,14 @@
 * {
   box-sizing: border-box;
-  font-family: "Franklin Gothic Medium", Arial, sans-serif;
 }
 
 body {
   margin: 0;
+  font: 100 "Helvetica";
 }
 
 #root {
-  padding: 1em 0;
+  padding: 2em 1em;
 }
 
 /*Main components styling*/
@@ -40,13 +40,14 @@ body {
 .calculator__input {
   position: relative;
   background-color: rgb(93, 92, 90);
+  font-family: inherit;
 
   display: flex;
   flex-wrap: wrap;
   gap: 1px;
 
-  border-bottom-right-radius: 0.6em;
-  border-bottom-left-radius: 0.6em;
+  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 1em;
 }
 
 /*Child components styling*/
@@ -60,7 +61,7 @@ body {
 
 .screen__numbers {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: flex-end;
 
   padding: 0 0.3em;
@@ -93,14 +94,14 @@ body {
   background-color: rgb(83, 194, 43);
 }
 
-.btn__message {
+/* .btn__message {
   position: absolute;
   color: white;
   padding: 0.1em;
   font-size: 12px;
   border: 1px solid black;
   background-color: rgb(50, 50, 47);
-}
+} */
 
 .input__btn {
   display: flex;
@@ -109,8 +110,13 @@ body {
   border: none;
   width: 58px;
   height: 48px;
-  font-size: 20px;
+  font-size: 25px;
   color: rgb(241, 241, 239);
+  font-family: inherit;
+}
+
+.input__btn:focus {
+  outline: none;
 }
 
 .input__btn--0 {

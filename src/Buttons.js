@@ -1,43 +1,117 @@
 import * as math from "mathjs";
 
-const Buttons = (props) => {
+const Buttons = ({ input, setInput, reference }) => {
   const availableOperations = ["+", "-", "*", "/", "."];
 
+  //I have to rethink this addInput methods to make key presses work.
   const addInput = (e) => {
     if (
-      (availableOperations.includes(e.target.name) &&
-        props.input.toString() === "0") ||
-      (availableOperations.includes(e.target.name) &&
-        availableOperations.includes(props.input.toString().slice(-1)))
+      availableOperations.includes(e.target.name) &&
+      availableOperations.includes(input.toString().slice(-1))
     )
       return;
 
-    props.setInput(
-      props.input === "0"
-        ? (props.input = e.target.name)
-        : (props.input = props.input + e.target.name)
-    );
+    setInput((input += e.target.name).replace(/^0+/, ""));
   };
 
-  const handleClear = () => props.setInput("0");
-  const handleClearText = props.input !== "0" ? "C" : "AC";
+  const handleClear = () => setInput("0");
+  const handleClearText = input !== "0" ? "C" : "AC";
 
   const toNegative = () => {
-    props.setInput(
-      Math.sign(props.input) === 1
-        ? -Math.abs(props.input)
-        : Math.abs(props.input)
-    );
+    setInput(Math.sign(input) === 1 ? -Math.abs(input) : Math.abs(input));
   };
 
-  const moveTwoDecimalPlaces = () =>
-    props.setInput(props.input / Math.pow(10, 2));
+  const moveTwoDecimalPlaces = () => setInput(input / Math.pow(10, 2));
 
   const handleEquals = () =>
-    props.setInput(props.input === "0" ? "0" : math.evaluate(props.input));
+    setInput(input === "0" ? "0" : math.evaluate(input));
+
+  const handleKeyboardEvents = (e) => {
+    e.preventDefault();
+    if (e.key === "Enter") {
+      console.log(`${e.key} was pressed`);
+      return handleEquals();
+    }
+
+    if (e.key === "Escape" || e.key === "`") {
+      console.log(`${e.key} was pressed`);
+      return handleClear();
+    }
+
+    if (e.key === "%") {
+      console.log(`${e.key} was pressed`);
+      return moveTwoDecimalPlaces();
+    }
+
+    if (e.key === "–") {
+      console.log(`${e.key} was pressed`);
+      return toNegative();
+    }
+
+    if (e.key === "=") {
+      console.log(`${e.key} was pressed`);
+    }
+
+    if (e.key === "=") {
+      console.log(`${e.key} was pressed`);
+    }
+
+    if (e.key === "=") {
+      console.log(`${e.key} was pressed`);
+    }
+
+    if (e.key === "=") {
+      console.log(`${e.key} was pressed`);
+    }
+
+    if (e.key === "1") {
+      console.log(`${e.traget.name} was pressed.`);
+      return addInput(e);
+    }
+
+    if (e.key === "2") {
+      console.log(`${e.key} was pressed.`);
+    }
+
+    if (e.key === "3") {
+      console.log(`${e.key} was pressed.`);
+    }
+
+    if (e.key === "4") {
+      console.log(`${e.key} was pressed.`);
+    }
+
+    if (e.key === "5") {
+      console.log(`${e.key} was pressed.`);
+    }
+
+    if (e.key === "6") {
+      console.log(`${e.key} was pressed.`);
+    }
+
+    if (e.key === "7") {
+      console.log(`${e.key} was pressed.`);
+    }
+
+    if (e.key === "8") {
+      console.log(`${e.key} was pressed.`);
+    }
+
+    if (e.key === "9") {
+      console.log(`${e.key} was pressed.`);
+    }
+
+    if (e.key === "0") {
+      console.log(`${e.key} was pressed.`);
+    }
+  };
 
   return (
-    <div className="calculator__input">
+    <div
+      className="calculator__input"
+      ref={reference}
+      onKeyPress={handleKeyboardEvents}
+    >
       <button
         name={handleClearText}
         onClick={handleClear}
@@ -169,6 +243,7 @@ const Buttons = (props) => {
       <button
         onClick={handleEquals}
         name="="
+        autoFocus
         className="input__btn input__btn--equals input__btn--orange"
       >
         =
