@@ -5,7 +5,8 @@ const Buttons = (props) => {
 
   const addInput = (e) => {
     if (
-      (availableOperations.includes(e.target.name) && props.input === "") ||
+      (availableOperations.includes(e.target.name) &&
+        props.input.toString() === "0") ||
       (availableOperations.includes(e.target.name) &&
         availableOperations.includes(props.input.toString().slice(-1)))
     )
@@ -32,12 +33,13 @@ const Buttons = (props) => {
   const moveTwoDecimalPlaces = () =>
     props.setInput(props.input / Math.pow(10, 2));
 
-  const handleEquals = () => props.setInput(math.evaluate(props.input));
+  const handleEquals = () =>
+    props.setInput(props.input === "0" ? "0" : math.evaluate(props.input));
 
   return (
     <div className="calculator__input">
       <button
-        name="AC"
+        name={handleClearText}
         onClick={handleClear}
         className="input__btn input__btn--top"
       >
@@ -46,6 +48,7 @@ const Buttons = (props) => {
       <button onClick={toNegative} className="input__btn input__btn--top">
         +/-
       </button>
+
       <button
         name="%"
         onClick={moveTwoDecimalPlaces}
@@ -53,6 +56,7 @@ const Buttons = (props) => {
       >
         %
       </button>
+
       <button
         name="/"
         onClick={addInput}
@@ -164,6 +168,7 @@ const Buttons = (props) => {
       </button>
       <button
         onClick={handleEquals}
+        name="="
         className="input__btn input__btn--equals input__btn--orange"
       >
         =
