@@ -1,6 +1,20 @@
 import React from 'react';
+import { useState } from 'react';
 import { render } from 'react-dom';
+import TitleBar from './Components/TitleBar';
+import Screen from './Components/Screen';
+import Buttons from './Components/Buttons/Buttons';
 
-const Application: React.FC<{}> = () => <h1>Application</h1>;
+const App = () => {
+  const [input, setInput] = useState('0');
 
-render(<Application />, document.getElementById('root'));
+  return (
+    <div className="calculator">
+      <TitleBar />
+      <Screen input={input} />
+      <Buttons input={input} setInput={setInput} />
+    </div>
+  );
+};
+
+render(<App />, document.getElementById('root'));

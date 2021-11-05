@@ -14,7 +14,9 @@
   ],
   "rules": {
     "react/prop-types": 0,
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": 0,
+    "avoidEscape": true,
+    "allowTemplateLiterals": true
   },
   "plugins": ["react", "import", "jsx-a11y"],
   "parser": "@babel/eslint-parser",
